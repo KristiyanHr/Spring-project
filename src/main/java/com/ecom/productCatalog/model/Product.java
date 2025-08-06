@@ -1,7 +1,10 @@
 package com.ecom.productCatalog.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 @Entity
 @Data
@@ -15,7 +18,9 @@ public class Product {
     private String imageUrl;
     private Double price;
 
+
     @ManyToOne
     @JoinColumn(name = "category_id", nullable = false)
+    @JsonBackReference
     private Category category;
 }

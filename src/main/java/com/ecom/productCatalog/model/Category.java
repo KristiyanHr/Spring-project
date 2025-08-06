@@ -1,7 +1,10 @@
 package com.ecom.productCatalog.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 import java.util.Set;
 
@@ -16,5 +19,6 @@ public class Category {
     @OneToMany(mappedBy = "category",
                 cascade = CascadeType.ALL,
                 fetch = FetchType.LAZY)
+    @JsonManagedReference
     private Set<Product> products;
 }
