@@ -22,5 +22,6 @@ public class Product {
     @ManyToOne
     @JoinColumn(name = "category_id", nullable = false)
     @JsonBackReference
+
     private Category category;
 }
